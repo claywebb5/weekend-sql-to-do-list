@@ -10,6 +10,35 @@
     <link rel="stylesheet" href="/styles/styles.css"/>
 </head>
 <body>
-    
+    <header>
+        <h1>To-Do List</h1>
+        <div class="inputs-and-btn">
+            <label id="the-task-type">Task Title:</label>
+            <input type="text" id="task-type" placeholder="Task Title"/>
+            
+            <label id="the-task-importance">Importance:</label>
+            <select id="task-importance">
+                <option value="placeholder"></option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <label id="the-due-date">Due Date:</label>
+            <input type="date" id="task-due" placeholder="Due Date"/>
+            <button id="btn-submit">Submit Task</button>
+        </div>
+    </header>
+    <main>
+        <table class="table">
+            <thead>
+                <tr class="heading">
+                </tr>
+            </thead>
+            <tbody class="list-body">
+                
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>
