@@ -1,13 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const todoRouter = require('./routes/todo.router');
 
 
 // Setup body parser - to translating request body into JSON
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// todo router set up to respond to requests
+const todoRouter = require('./routes/todo.router');
 app.use('/tasks', todoRouter);
 
 // Serve "static assets" (html, css, client-side js)

@@ -20,3 +20,5 @@ function getList(){
         console.log('Error in the getList GET:', error);
     });
 } // End getList function
+// <GET LAND>---------------------------------------------------------------------
+
