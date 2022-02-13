@@ -77,7 +77,7 @@ function completedTask() {
     console.log('This is the completed status:', completedStatus);   
     $.ajax({
         method: 'PUT',
-        url: `/tasks/status/${id}`,
+        url: `/tasks/${id}`,
         data: {
             status: completedStatus
         }

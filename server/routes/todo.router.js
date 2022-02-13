@@ -35,5 +35,30 @@ router.post('/', (req, res) => {
 // <POST LAND>------------------------------------------------------------------------
 
 // <PUT LAND>---------------------------------------------------------------------
+router.put('/:id', (req, res) => {
+    let status = req.body.status;
+    let id = req.params.id;
+    console.log(`Updating Task ${id} with`, status);
+    
+    let sqlText = '';
+    if (status === 'Completed Task') {
+        sqlText = `UPDATE "tasks" SET "status" = 'True' WHERE "id" = $1;`;
+    } else {
+        res.sendStatus(500)
+        return;
+    }
+
+    let sqlValues = [id];
+
+    pool.query(sqlText, sqlValues)
+        .then(result => {
+            res.sendStatus(200);
+        }).catch(err => {
+            console.log('err making PUT request back end:', err);
+            res.sendStatus(500);
+        })
+})
+
+// <PUT LAND>---------------------------------------------------------------------
 
 module.exports = router;
