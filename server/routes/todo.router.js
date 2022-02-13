@@ -61,8 +61,19 @@ router.put('/:id', (req, res) => {
 // <PUT LAND>---------------------------------------------------------------------
 
 // <DELETE>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
+router.delete('/:id', (req, res)  => {
+    let reqId = req.params.id;
+    console.log('Deleted ID:', reqId);
+    let queryText = `DELETE FROM "tasks" WHERE "id" = $1;`;
+    pool.query(queryText, [reqId])
+        .then((result) => {
+            console.log('The task was successfully DELETED', result);
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('Error making DELETE query:', error);
+            res.sendStatus(500);
+        })
+})
 // <DELETE>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 module.exports = router;
