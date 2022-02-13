@@ -90,3 +90,26 @@ function completedTask() {
     })
 } // End completedTask function
 // <PUT LAND>---------------------------------------------------------------------
+
+
+// <DELETE>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// When the deleted task button is clicked
+function deletedTask(){
+    let taskId = $(this).closest('tr').data().id;
+    console.log('Task is deleted:', taskId);
+    let deleteConfirmation = confirm('Are you sure you want to delete this task?');
+    if (deleteConfirmation == true) {
+        $.ajax({
+            method: 'DELETE',
+            url: `/tasks/${taskId}`
+        }).then(function(response) {
+            console.log('Task is deleted:', taskId);
+            console.log('response is:', response);
+            getList();
+        }).catch(function (error) {
+            alert('Error in front end DELETE:', error);
+        })
+    }
+} // End deletedTask function
+
+// <DELETE>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
