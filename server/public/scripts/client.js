@@ -8,8 +8,6 @@ function readyNow(){
     $('.list-body').on('click', '.delete-btn', deletedTask);
 } // End readyNow
 
-
-
 // <GET LAND>---------------------------------------------------------------------
 function getList(){
     console.log('In getList');
@@ -50,8 +48,6 @@ function getList(){
 } // End getList function
 // <GET LAND>---------------------------------------------------------------------
 
-
-
 // <POST LAND>------------------------------------------------------------------------
 function newTask(){
     console.log('A new task is created!');
@@ -69,3 +65,28 @@ function newTask(){
         getList();
     });
 } // End newTask function
+// <POST LAND>------------------------------------------------------------------------
+
+// <PUT LAND>------------------------------------------------------------------------
+// When the completed task button is clicked
+function completedTask() {
+    console.log('Completed task button clicked!');
+    let id = $(this).closest('tr').data().id;
+    console.log('This is the id:', id);
+    let completedStatus = $(this).text();
+    console.log('This is the completed status:', completedStatus);   
+    $.ajax({
+        method: 'PUT',
+        url: `/tasks/status/${id}`,
+        data: {
+            status: completedStatus
+        }
+    }).then(function(response) {
+        console.log('The front end PUT response is:', response);
+        // Refresh the list on the DOM by calling the GET
+        getList();
+    }).catch(function(error) {
+        alert('Error in the front end PUT function:', error)
+    })
+} // End completedTask function
+// <PUT LAND>---------------------------------------------------------------------
