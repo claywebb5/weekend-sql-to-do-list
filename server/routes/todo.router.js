@@ -4,9 +4,9 @@ const pool = require('../modules/pool');
 
 // <GET LAND>---------------------------------------------------------------------
 router.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM "tasks";';
+    let queryText = 'SELECT * FROM "tasks" ORDER BY "id";';
     pool.query(queryText)
-        .then(result => {
+        .then((result) => {
             res.send(result.rows);
         }).catch((err) => {
             console.log('Error making task list:', queryText, err);
@@ -14,3 +14,5 @@ router.get('/', (req, res) => {
         });
 });
 // <GET LAND>---------------------------------------------------------------------
+
+module.exports = router;
