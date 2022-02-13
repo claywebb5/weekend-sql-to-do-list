@@ -1,3 +1,98 @@
 .inputs-and-btn {
     display: block;
+    border: 1px solid whitesmoke;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    /* background-image: linear-gradient(45deg, black, blue); */
+    background-image: -webkit-linear-gradient(45deg, blue, orange, black);
+
+}
+
+header {
+    /* background-image: linear-gradient(45deg, blue, orange, black); */
+    color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+
+}
+
+#blank {
+    background: 
+  /* On "top" */
+  repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    #ccc 10px,
+    #ccc 20px
+  ),
+  /* on "bottom" */
+  linear-gradient(
+    to bottom,
+    rgba(244, 244, 247, 0.81) 10px,
+    rgba(6, 6, 245, 0.81) 20px
+  );
+}
+
+.table th {
+    background-color: #DCDCDC;
+}
+
+.table td {
+    background-color: #FFFAFA;
+}
+
+.table, .table th, .table td {
+    margin-left: 1rem;
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+.completed-task {
+    font-weight: bolder;
+    font-style: italic;
+    color: whitesmoke
+}
+
+.completed-task td {
+      background: 
+  /* On "top" */
+  repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(244, 244, 247, 0.81) 5px,
+    rgba(0, 0, 0, 0.81) 10px
+  ),
+  /* on "bottom" */
+  linear-gradient(
+    to bottom,
+    rgba(244, 244, 247, 0.81) 10px,
+    rgba(6, 6, 245, 0.81) 20px
+ ); 
+}
+
+#btn-add {
+    font-family: sans-serif;
+    width: 150px;
+    font-weight: 500;
+}
+
+.completed-btn {
+    font-family: sans-serif;
+    width: 150px;
+    font-weight: 500;
+}
+
+.delete-btn {
+    font-family: sans-serif;
+    width: 150px;
+    font-weight: 500;
 }

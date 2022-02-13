@@ -36,6 +36,7 @@ function getList(){
                     <td>${response[i].task}</td>
                     <td>${response[i].date}</td>
                     <td>Completed!!</td>
+                    <td id="blank"></td>
                     <td><button class="delete-btn">Delete Task</button></td>
                 </tr>
                 `);
