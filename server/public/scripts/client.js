@@ -1,10 +1,14 @@
 $(readyNow);
 
 function readyNow(){
-    // console.log('jQuery running');
-    $('#btn-add').on('click', newTask);
     getList();
+    // Click listeners
+    $('#btn-add').on('click', newTask);
+    $('.list-body').on('click', '.completed-btn', completedTask);
+    $('.list-body').on('click', '.delete-btn', deletedTask);
 } // End readyNow
+
+
 
 // <GET LAND>---------------------------------------------------------------------
 function getList(){
@@ -40,16 +44,28 @@ function getList(){
             }
             
         }
-        // Click listeners for the created buttons
-        $('.completed-btn').on('click', completedTask);
-        $('.delete-btn').on('click', deletedTask);
-
     }).catch(function (error) {
         console.log('Error in the getList GET:', error);
     });
 } // End getList function
 // <GET LAND>---------------------------------------------------------------------
 
-// 
+
 
 // <POST LAND>------------------------------------------------------------------------
+function newTask(){
+    console.log('A new task is created!');
+    let taskObject = {
+        task: $('#task-name').val(),
+        date: $('#task-due').val()
+    };
+    $.ajax({
+        type: 'POST',
+        url: '/tasks',
+        data: taskObject
+    }).then(function(response) {
+        $('#task-name').val('');
+        $('#task-due').val('');
+        getList();
+    });
+} // End newTask function
